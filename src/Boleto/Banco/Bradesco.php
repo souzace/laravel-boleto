@@ -69,6 +69,7 @@ class Bradesco  extends AbstractBoleto implements BoletoContract
         'ND' => '11',
         'DS' => '12',
     ];
+
     /**
      * Método que valida se o banco tem todos os campos obrigadotorios preenchidos
      */

@@ -255,6 +255,14 @@ abstract class AbstractBoleto implements BoletoContract
      * @var int
      */
     protected $status = self::STATUS_REGISTRO;
+
+    /**
+    * Define orientação do boleto 
+    * retrato ou paisagem
+    *
+    * @var string
+    */
+    protected $orientacao = 'retrato';
     /**
      * Construtor
      *
@@ -1050,6 +1058,29 @@ abstract class AbstractBoleto implements BoletoContract
     {
         return $this->status;
     }
+
+
+    /**
+     * Define a orientação da página
+     *
+     * @param string $orientacao
+     * @return AbstractBoleto
+     */
+    public function setOrientacao($orientacao)
+    {
+        $this->orientacao = $orientacao;
+        return $this;
+    }
+    /**
+     * Retorna a orientação da página
+     *
+     * @return string
+     */
+    public function getOrientacao()
+    {
+        return $this->orientacao;
+    }
+
     /**
      * Marca o boleto para ser alterado no banco
      *
@@ -1311,6 +1342,7 @@ abstract class AbstractBoleto implements BoletoContract
             'aceite' => $this->getAceite(),
             'carteira' => $this->getCarteiraNome(),
             'uso_banco' => $this->getUsoBanco(),
+            'orientacao' => $this->getOrientacao()
         ], $this->variaveis_adicionais);
     }
 
