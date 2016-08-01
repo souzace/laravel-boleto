@@ -263,6 +263,19 @@ abstract class AbstractBoleto implements BoletoContract
     * @var string
     */
     protected $orientacao = 'retrato';
+
+    /**
+    * Define parcela atual  
+    * @var int
+    */
+    protected $parcelaAtual = 1;
+
+    /**
+    * Define totalParcelas 
+    * @var int
+    */
+    protected $totalParcelas = 1;
+
     /**
      * Construtor
      *
@@ -289,6 +302,7 @@ abstract class AbstractBoleto implements BoletoContract
             $this->setDataVencimento(new Carbon(date('Y-m-d', strtotime('+5 days'))));
         }
     }
+
     /**
      * Define a agência
      *
@@ -1059,27 +1073,7 @@ abstract class AbstractBoleto implements BoletoContract
         return $this->status;
     }
 
-
-    /**
-     * Define a orientação da página
-     *
-     * @param string $orientacao
-     * @return AbstractBoleto
-     */
-    public function setOrientacao($orientacao)
-    {
-        $this->orientacao = $orientacao;
-        return $this;
-    }
-    /**
-     * Retorna a orientação da página
-     *
-     * @return string
-     */
-    public function getOrientacao()
-    {
-        return $this->orientacao;
-    }
+    
 
     /**
      * Marca o boleto para ser alterado no banco
@@ -1342,8 +1336,75 @@ abstract class AbstractBoleto implements BoletoContract
             'aceite' => $this->getAceite(),
             'carteira' => $this->getCarteiraNome(),
             'uso_banco' => $this->getUsoBanco(),
-            'orientacao' => $this->getOrientacao()
+            'orientacao' => $this->getOrientacao(),
+            'parcelaAtual' => $this->getParcelaAtual(),
+            'totalParcelas' => $this->getTotalParcelas(),
         ], $this->variaveis_adicionais);
     }
 
+    /**
+     * Define a parcela atual
+     *
+     * @param int $parcelaAtual
+     * @return AbstractBoleto
+     */
+    public function setParcelaAtual($parcelaAtual)
+    {
+        $this->parcelaAtual = $parcelaAtual;
+        return $this;
+    }
+
+    /**
+     * Retorna a parcela atual
+     *
+     * @return int
+     */
+    public function getParcelaAtual()
+    {
+        return $this->parcelaAtual;
+    }
+
+    /**
+     * Define o número de parcelas
+     *
+     * @param int $parcelaAtual
+     * @return AbstractBoleto
+     */
+    public function setTotalParcelas($totalParcelas)
+    {
+        $this->totalParcelas = $totalParcelas;
+        return $this;
+    }
+
+    /**
+     * Retorna o total de parcelas
+     *
+     * @return string
+     */
+    public function getTotalParcelas()
+    {
+        return $this->totalParcelas;
+    }
+
+    /**
+     * Define a orientação da página
+     *
+     * @param string $orientacao
+     * @return AbstractBoleto
+     */
+    public function setOrientacao($orientacao)
+    {
+        $this->orientacao = $orientacao;
+        return $this;
+    }
+
+    /**
+     * Retorna a orientação da página
+     *
+     * @return string
+     */
+    public function getOrientacao()
+    {
+        return $this->orientacao;
+    }
 }

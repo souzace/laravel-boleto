@@ -97,7 +97,7 @@
                 </td>
             </tr>
             <tr>
-                <td style="border-top:0px none;">Parcelar Plano 1/2</td>
+                <td style="border-top:0px none;">Parcelar Plano {{ $parcelaAtual }} / {{ $totalParcelas }}</td>
                 <td style="border-top:0px;border-right: 1px solid black;">
                     <div class="titulo">Vencimento</div>
                     <div class="conteudo rtl">{{ $data_vencimento }}</div>
