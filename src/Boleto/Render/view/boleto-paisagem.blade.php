@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <title>{{ $beneficiario }}</title>
     <style>
-
+        
         body{ background-color:#fff; margin-right:0; }
 
         .conteudo{ font: 700 10px Arial; height: 13px; }
 
-        .vertical-text { transform-origin: 30px 164px 0; -webkit-transform: rotate(-90deg); -moz-transform: rotate(-90deg); -ms-transform: rotate(-90deg); -o-transform: rotate(-90deg); transform: rotate(-90deg); filter: progid:DXImageTransform.Microsoft.BasicImage(rotation = 3); border: 0; font: 700 10px Arial; text-align: center;}
+        .vertical-text { transform-origin: 30px 164px 0; -webkit-transform: rotate(-90deg); -moz-transform: rotate(-90deg); -ms-transform: rotate(-90deg); -o-transform: rotate(-90deg); transform: rotate(-90deg); filter: progid:DXImageTransform.Microsoft.BasicImage(rotation = 3); border: 0; font: 700 10px Arial; text-align: center; position:relative; left:-30px}
 
-        .linha-pontilhada { color: #003; font: 9px Arial; width: 320px; border-bottom: 2px dashed #000; text-align:left; display:table-cell; float:left; margin-left:-111px; position: absolute; }
+        .linha-pontilhada { color: #003; font: 9px Arial; width: 320px; border-bottom: 2px dashed #000; text-align:left; display:table-cell; float:left; margin-left:-152px; position: absolute; }
         .linha-pontilhada-vertical{ transform-origin: 138px 20px 0; -webkit-transform: rotate(-90deg); -moz-transform: rotate(-90deg); -ms-transform: rotate(-90deg); -o-transform: rotate(-90deg); transform: rotate(-90deg); filter: progid:DXImageTransform.Microsoft.BasicImage(rotation = 3); }
         .linha-pontilhada-horizontal{ -webkit-transform: rotate(0deg); -moz-transform: rotate(0deg); -ms-transform: rotate(0deg); -o-transform: rotate(0deg); transform: rotate(0deg); filter: progid:DXImageTransform.Microsoft.BasicImage(rotation = 3); margin-left: 0px; width: 910px; margin-top: -6px; }
 
@@ -67,7 +67,6 @@
         .table-boleto .linha-digitavel { font: 700 12px Arial; display: inline; text-align: right; }
         .table-boleto .nopadding { padding: 0!important; }
         .table-boleto .caixa-gray-bg { font-weight: 700; background: #ccc; }
-
     </style>
 </head>
 <body>
