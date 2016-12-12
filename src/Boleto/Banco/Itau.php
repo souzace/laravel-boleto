@@ -38,7 +38,6 @@ class Itau extends AbstractBoleto implements BoletoContract
      * @var array
      */
     public $variaveis_adicionais = [
-        'carteira' => '',
     ];
     /**
      * Define as carteiras disponíveis para este banco
@@ -166,4 +165,5 @@ class Itau extends AbstractBoleto implements BoletoContract
         $dvAgConta = Util::modulo10($agencia . $conta);
         return $this->campoLivre = $carteira . $numero . $dvAgContaCarteira . $agencia . $conta . $dvAgConta . '000';
     }
+
 }

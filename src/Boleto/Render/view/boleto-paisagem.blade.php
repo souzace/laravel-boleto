@@ -96,7 +96,12 @@
                 </td>
             </tr>
             <tr>
-                <td style="border-top:0px none;">Parcelar Plano {{ $parcelaAtual }} / {{ $totalParcelas }}</td>
+                <td style="border-top:0px none;">
+                    <div class="titulo">Parcelar Plano</div> 
+                    <div class="conteudo rtl">
+                    {{ $parcelaAtual }} / {{ $totalParcelas }}
+                    </div>
+                </td>
                 <td style="border-top:0px;border-right: 1px solid black;">
                     <div class="titulo">Vencimento</div>
                     <div class="conteudo rtl">{{ $data_vencimento }}</div>
@@ -172,13 +177,10 @@
             <tr>
                 <td colspan="2" style="border-right: 1px solid black;">
                     Sacado: {{ $pagador }}<br />
-                    Cedente: {{ $beneficiario }}<br />
+                    Beneficiario: {{ $beneficiario }}<br />
+                    {{ $beneficiario_endereco1 }}<br/> 
+                    {{ $beneficiario_endereco2 }}<br />
                     CNPJ: {{ $beneficiario_cpf_cnpj }}
-                </td>
-            </tr>
-            <tr>
-                <td colspan="3" style="border-right: 1px solid black;">
-                {{ $demonstrativo[0] }}
                 </td>
             </tr>
             </tbody>

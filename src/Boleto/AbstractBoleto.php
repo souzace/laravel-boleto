@@ -1171,9 +1171,10 @@ abstract class AbstractBoleto implements BoletoContract
      */
     public function getAgenciaCodigoBeneficiario()
     {
-        $agencia = $this->getAgenciaDv() !== null ? $this->getAgencia() . '-' . $this->getAgenciaDv() : $this->getAgencia();
-        $conta = $this->getContaDv() !== null ? $this->getConta() . '-' . $this->getContaDv() : $this->getConta();
-        return $agencia . ' / ' . $conta;
+        $agencia = (($this->getAgenciaDv() !== null) &&  !empty($this->getAgenciaDv()))? $this->getAgencia() . '-' . $this->getAgenciaDv() : $this->getAgencia();
+        
+        $conta = (($this->getContaDv() !== null) && !empty($this->getContaDv())) ? $this->getConta() . '-' . $this->getContaDv() : $this->getConta();
+        return $agencia . '/' . $conta;
     }
     /**
      * Retorna o nome da carteira para impressão no boleto
@@ -1292,6 +1293,7 @@ abstract class AbstractBoleto implements BoletoContract
      */
     public function toArray()
     {
+       
         return array_merge([
             'linha_digitavel' => $this->getLinhaDigitavel(),
             'codigo_barras' => $this->getCodigoBarras(),

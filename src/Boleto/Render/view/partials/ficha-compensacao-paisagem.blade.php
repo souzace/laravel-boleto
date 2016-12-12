@@ -24,7 +24,7 @@
     <tr>
         <td colspan="7">
             <div class="titulo">Beneficiário</div>
-            <div class="conteudo">{{ $beneficiario_nome_documento }}</div>
+            <div class="conteudo" style="font-size:9px!important;">{{ $beneficiario_nome_documento }}</div>
         </td>
         <td>
             <div class="titulo">Agência/Código beneficiário</div>
