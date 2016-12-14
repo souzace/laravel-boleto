@@ -13,7 +13,7 @@
 
         .linha-pontilhada { color: #003; font: 9px Arial; width: 320px; border-bottom: 2px dashed #000; text-align:left; display:table-cell; float:left; margin-left:-152px; position: absolute; }
         .linha-pontilhada-vertical{ transform-origin: 138px 20px 0; -webkit-transform: rotate(-90deg); -moz-transform: rotate(-90deg); -ms-transform: rotate(-90deg); -o-transform: rotate(-90deg); transform: rotate(-90deg); filter: progid:DXImageTransform.Microsoft.BasicImage(rotation = 3); }
-        .linha-pontilhada-horizontal{ -webkit-transform: rotate(0deg); -moz-transform: rotate(0deg); -ms-transform: rotate(0deg); -o-transform: rotate(0deg); transform: rotate(0deg); filter: progid:DXImageTransform.Microsoft.BasicImage(rotation = 3); margin-left: 0px; width: 910px; margin-top: -6px; }
+        .linha-pontilhada-horizontal{ -webkit-transform: rotate(0deg); -moz-transform: rotate(0deg); -ms-transform: rotate(0deg); -o-transform: rotate(0deg); transform: rotate(0deg); filter: progid:DXImageTransform.Microsoft.BasicImage(rotation = 3); margin-left: 0px; width: 1002px; margin-top: -6px; }
 
         .info,.info-empresa { font: 11px Arial;}
 
@@ -28,7 +28,7 @@
         .barcode .thin.white { width:1px; }
         .barcode .large.white { width:3px; }
 
-        .recibo-sacado { width: 300px; font:9px Arial; line-height: 1.4; margin-right: 12px; }
+        .recibo-sacado { width: 280px; font:9px Arial; line-height: 1.4; margin-right: 12px; }
         .recibo-sacado td { border-left: 1px solid #000; border-top: 1px solid #000; padding: 0px; }
         .recibo-sacado .titulo { color: #003; }
         .recibo-sacado .codbanco { font: 700 15px Arial; padding: 0px 8px 6px; display: inline; border-left: 2px solid #000; border-right: 2px solid #000; margin-left: 20px; }
@@ -47,7 +47,7 @@
         .recibo-sacado .nopadding { padding: 0!important; }
         .recibo-sacado .caixa-gray-bg { font-weight: 700; background: #ccc; }
 
-        .table-boleto { font:9px Arial; width: 600px; line-height: 0.9; }
+        .table-boleto { font:9px Arial; width: 700px; line-height: 0.9; }
         .table-boleto td.top-2 { border-top-width: 2px; }
         .table-boleto td { border-left: 1px solid #000; border-top: 1px solid #000; padding: 0px; margin:0px;}
         .table-boleto td:last-child { border-right: 1px solid #000; }
@@ -73,57 +73,50 @@
 <div style="margin-bottom: 10px;">
     <div style="display: inline-block;">
         <table class="recibo-sacado" cellpadding="0" cellspacing="0" border="0">
-            <tbody>
             <tr>
-                <td class="noborder" style="border-bottom:1px solid #000;">
-                    <div class="logocontainer logobanco" >
-                        <img src="{{ $logo_banco_base64 }}" alt="logo do banco">
-                    </div>
+                <td width="100">
+                    <img src="{{ $logo_banco_base64 }}" alt="logo do banco" style="width:95px;">
                 </td>
-                <td class="noborder" style="width: 100px;border-bottom:1px solid #000;">
-                    <div class="codbanco">
-                        {{ $codigo_banco_com_dv }}
-                    </div>
+                <td width="70" style="text-align: center;">
+                    <div class="conteudo">{{ $codigo_banco_com_dv }}</div>
                 </td>
-                <td class="noborder" style="width: 100px;border-bottom:1px solid #000;">
-                    <div class="linha-digitavel">
-                        Recibo do Sacado
-                    </div>
+                <td width="70" style="text-align: center;">
+                    <div class="conteudo">Recibo do Sacado</div>
                 </td>
-                <td rowspan="14" style="border-top: 0px none;border-bottom:1px solid #000;">
+                <td rowspan="14" >
                     <div class="linha-pontilhada linha-pontilhada-vertical">
                     </div>
                 </td>
             </tr>
             <tr>
-                <td style="border-top:0px none;">
+                <td>
                     <div class="titulo">Parcelar Plano</div> 
                     <div class="conteudo rtl">
                     {{ $parcelaAtual }} / {{ $totalParcelas }}
                     </div>
                 </td>
-                <td style="border-top:0px;border-right: 1px solid black;">
+                <td>
                     <div class="titulo">Vencimento</div>
                     <div class="conteudo rtl">{{ $data_vencimento }}</div>
                 </td>
-                <td nowrap rowspan="12" class="vertical-text" style="border-left: 0px none;border-top: 0px none;">
-                    Autenticação Mecânica
+                <td nowrap rowspan="11">
+                    <div class="vertical-text">Autenticação Mecânica</div>
                 </td>
             </tr>
             <tr>
-                <td colspan="2" style="border-right: 1px solid black;">
+                <td colspan="2">
                     <div class="titulo">Agência / Código Cedente</div>
-                    <div class="conteudo rtl    ">{{ $agencia_codigo_beneficiario }}<div class="conteudo">
+                    <div class="conteudo rtl">{{ $agencia_codigo_beneficiario }}<div class="conteudo">
                 </td>
             </tr>
             <tr>
-                <td colspan="2" style="border-right: 1px solid black;">
+                <td colspan="2">
                     <div class="titulo"> Nosso Número</div>
                     <div class="conteudo rtl"> {{ $nosso_numero_boleto }}</div>
                 </td>
             </tr>
             <tr>
-                <td colspan="2" style="border-right: 1px solid black;">
+                <td colspan="2">
                     <div class="titulo"> Número do documento</div>
                     <div class="conteudo rtl"> {{ $numero_documento }}</div>
                 </td>
@@ -133,57 +126,58 @@
                     <div class="titulo">Espécie Moeda</div>
                     <div class="conteudo rtl">{{ $especie }}</div>
                 </td>
-                <td style="border-right: 1px solid black;">
+                <td>
                     <div class="titulo">Quantidade</div>
                     <div class="conteudo rtl">{{ $quantidade }}</div>
                 </td>
             </tr>
             <tr>
-                <td colspan="2" style="border-right: 1px solid black;">
+                <td colspan="2">
                     <div class="titulo"> 1 (=) Valor do Documento</div>
                     <div class="conteudo rtl">{{ $valor_documento }}</div>
                 </td>
             </tr>
             <tr>
-                <td colspan="2" style="border-right: 1px solid black;">
+                <td colspan="2">
                     <div class="titulo"> 2 (-) Desconto / Abatimento</div>
                     <div class="conteudo rtl"> </div>
                 </td>
             </tr>
             <tr>
-                <td colspan="2" style="border-right: 1px solid black;">
+                <td colspan="2">
                     <div class="titulo"> 3 (-) Outras Deduções</div>
                     <div class="conteudo rtl"> </div>
                 </td>
             </tr>
             <tr>
-                <td colspan="2" style="border-right: 1px solid black;">
+                <td colspan="2">
                     <div class="titulo"> 4 (+) Mora / Multa</div>
                     <div class="conteudo rtl"> </div>
                 </td>
             </tr>
             <tr>
-                <td colspan="2" style="border-right: 1px solid black;">
+                <td colspan="2">
                     <div class="titulo"> 5 (+) Outros Acréscimos</div>
                     <div class="conteudo rtl"> </div>
                 </td>
             </tr>
             <tr>
-                <td colspan="2" style="border-right: 1px solid black;">
+                <td colspan="2" >
                    <div class="titulo">  6 (=) Valor Cobrado</div>
                    <div class="conteudo rtl"> </div>
                 </td>
             </tr>
             <tr>
-                <td colspan="2" style="border-right: 1px solid black;">
+                <td colspan="2" style="border-bottom: 1px solid #000">
                     Sacado: {{ $pagador }}<br />
                     Beneficiario: {{ $beneficiario }}<br />
                     {{ $beneficiario_endereco1 }}<br/> 
                     {{ $beneficiario_endereco2 }}<br />
                     CNPJ: {{ $beneficiario_cpf_cnpj }}
                 </td>
+                <td style="border-top: 0px;  border-bottom: 1px solid #000">
+                </td>
             </tr>
-            </tbody>
         </table>
     </div>
     <div style="display: inline-block;">

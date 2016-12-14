@@ -40,7 +40,7 @@
             <div class="titulo">Nº documento</div>
             <div class="conteudo">{{ $numero_documento }}</div>
         </td>
-        <td width="60">
+        <td width="65">
             <div class="titulo">Espécie doc.</div>
             <div class="conteudo">{{ $especie_doc }}</div>
         </td>
@@ -104,8 +104,7 @@
     </tr>
     <tr>
         <td colspan="7" class="notopborder">
-            <div class="conteudo">{{ $instrucoes[0] }}</div>
-            <div class="conteudo">{{ $instrucoes[1] }}</div>
+            <div class="conteudo" style="font-weight:normal; font-size:8px;">{!! $instrucoes[0] !!}</div>
         </td>
         <td>
             <div class="titulo">(-) Outras deduções</div>
