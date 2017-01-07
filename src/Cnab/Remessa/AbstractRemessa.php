@@ -429,10 +429,9 @@ abstract class AbstractRemessa
         {
             throw new \Exception('Nenhuma linha detalhe foi adicionada');
         }
-
+      
         $this->header();
         $stringRemessa .= $this->valida($this->aRegistros[self::HEADER]) . $this->fimLinha;
-
         foreach($this->aRegistros[self::DETALHE] as $i => $detalhe)
         {
             $stringRemessa .= $this->valida($detalhe) . $this->fimLinha;

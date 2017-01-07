@@ -60,7 +60,6 @@ class Itau extends AbstractBoleto implements BoletoContract
         'ND' => '13',
         'CDA' => '15',
         'EC' => '16',
-        'DS' => '17',
     ];
     /**
      * Campo obrigatório para emissão de boletos com carteira 198 fornecido pelo Banco com 5 dígitos

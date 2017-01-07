@@ -277,6 +277,20 @@ abstract class AbstractBoleto implements BoletoContract
     protected $totalParcelas = 1;
 
     /**
+    * Define data da validade do desconto 
+    * DDMMYYYY
+    *
+    * @var string
+    */
+    protected $descontoAte = '';
+    
+    /**
+     * Campo valor do desconto
+     * @var
+     */
+    protected $valorDesconto = 0;
+
+    /**
      * Construtor
      *
      * @param array $params Parâmetros iniciais para construção do objeto
@@ -1341,6 +1355,9 @@ abstract class AbstractBoleto implements BoletoContract
             'orientacao' => $this->getOrientacao(),
             'parcelaAtual' => $this->getParcelaAtual(),
             'totalParcelas' => $this->getTotalParcelas(),
+            'descontoAte' => $this->getDescontoAte()->format('d/m/Y'),
+            'valorDesconto' => $this->getValorDesconto()
+
         ], $this->variaveis_adicionais);
     }
 
@@ -1408,5 +1425,48 @@ abstract class AbstractBoleto implements BoletoContract
     public function getOrientacao()
     {
         return $this->orientacao;
+    }
+
+    /**
+     * Define a data de validade do desconto
+     *
+     * @param string $descontoAte
+     * @return AbstractBoleto
+     */
+    public function setDescontoAte($descontoAte)
+    {
+        $this->descontoAte = $descontoAte;
+        return $this;
+    }
+
+    /**
+     * Retorna a data de validade do desconto
+     *
+     * @return string
+     */
+    public function getDescontoAte()
+    {
+        return $this->descontoAte;
+    }
+
+        /**
+     * Define o campo valor desconto
+     *
+     * @param float $valorDesconto
+     * @return AbstractBoleto
+     */
+    public function setValorDesconto($valorDesconto)
+    {
+        $this->valorDesconto = $valorDesconto;
+        return $this;
+    }
+    /**
+     * Retorna o campo valor desconto
+     *
+     * @return float
+     */
+    public function getValorDesconto()
+    {
+        return Util::nFloat($this->valorDesconto, 2, false);
     }
 }

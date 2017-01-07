@@ -230,8 +230,8 @@ class Itau extends AbstractRemessa implements RemessaContract
             $juros = Util::percent($boleto->getValor(), $boleto->getJuros())/30;
         }
         $this->add(161, 173, Util::formatCnab('9', $juros, 13, 2));
-        $this->add(174, 179, '000000');
-        $this->add(180, 192, Util::formatCnab('9', 0, 13, 2));
+        $this->add(174, 179, $boleto->getDescontoAte()->format('dmy'));
+        $this->add(180, 192, Util::formatCnab('9', $boleto->getValorDesconto(), 13, 2));
         $this->add(193, 205, Util::formatCnab('9', 0, 13, 2));
         $this->add(206, 218, Util::formatCnab('9', $boleto->getDescontosAbatimentos(), 13, 2));
         $this->add(219, 220, strlen(Util::onlyNumbers($boleto->getPagador()->getDocumento())) == 14 ? '02' : '01');
@@ -249,7 +249,7 @@ class Itau extends AbstractRemessa implements RemessaContract
         $this->add(392, 393, Util::formatCnab('9', $boleto->getDiasProtesto('0'), 2));
         $this->add(394, 394, '');
         $this->add(395, 400, Util::formatCnab('9', $this->iRegistros+1, 6));
-
+        
         return $this;
     }
 
